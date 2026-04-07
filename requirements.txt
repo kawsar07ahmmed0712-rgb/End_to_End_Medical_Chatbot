@@ -7,6 +7,7 @@ langchain-pinecone==0.2.13
 langchain-openai==0.3.24
 langchain-google-genai==2.0.11
 langchain-community==0.3.26
+langchain-huggingface==0.3.1
 langchain-ollama
 faiss-cpu
 chromadb

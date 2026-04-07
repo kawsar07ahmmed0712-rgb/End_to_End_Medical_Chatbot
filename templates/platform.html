@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="page-section page-hero">
+    <div class="container hero-grid hero-grid-compact">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Platform overview</p>
+        <h1>A cleaner explanation of how the medical RAG workflow operates.</h1>
+        <p class="lead">
+          This platform combines indexed medical retrieval, selectable models,
+          concise generation, and health visibility in a format that is easier
+          to explain to clinics, internal stakeholders, and pilot teams.
+        </p>
+      </div>
+
+      <article class="panel stacked-panel" data-reveal>
+        <h2>Why teams use this setup</h2>
+        <ul class="clean-list">
+          <li>Faster navigation of medical reference material</li>
+          <li>Source previews attached to answers</li>
+          <li>Model choice without rebuilding the interface</li>
+          <li>Clear runtime readiness signals before demos</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">Architecture in product language</p>
+        <h2>Three system layers shape the experience.</h2>
+      </div>
+
+      <div class="feature-grid architecture-grid">
+        <article class="feature-card" data-reveal>
+          <h3>Knowledge layer</h3>
+          <p>
+            PDF content is embedded and indexed so the assistant can retrieve
+            relevant passages before generation starts.
+          </p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <h3>Model layer</h3>
+          <p>
+            Cloud and local model options share the same workflow, making side
+            by side evaluation possible from one assistant screen.
+          </p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <h3>Experience layer</h3>
+          <p>
+            Users see the answer, cited source previews, model identity, and
+            runtime health in one structured interface.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container split-panel">
+      <article class="panel" data-reveal>
+        <p class="eyebrow">What users can inspect</p>
+        <h2>Important signals are visible, not hidden.</h2>
+        <ul class="clean-list">
+          <li>Which model answered the request</li>
+          <li>How many context documents were retrieved</li>
+          <li>How long the response took</li>
+          <li>Which sources supported the answer</li>
+        </ul>
+      </article>
+
+      <article class="panel panel-accent" data-reveal>
+        <p class="eyebrow">Operational expectation</p>
+        <h2>Reliability depends on configuration readiness.</h2>
+        <p>
+          The assistant is strongest when the vector index, environment
+          variables, and model runtimes are healthy. The UI should make these
+          dependencies easy to spot early.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">Live status</p>
+        <h2>Current application readiness</h2>
+        <p>
+          This section reads the same health endpoint used by the backend so the
+          platform page can communicate what is ready right now.
+        </p>
+      </div>
+      <div class="status-surface" data-health-summary data-reveal>
+        <p class="status-placeholder">Loading current health summary...</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2>Common implementation and rollout questions.</h2>
+      </div>
+
+      <div class="faq-grid">
+        <details class="faq-item" data-reveal>
+          <summary>Does the assistant always use retrieved context?</summary>
+          <p>
+            Yes. The response pipeline is grounded in retrieved medical context
+            before generation, which keeps the experience aligned to the indexed
+            knowledge base.
+          </p>
+        </details>
+        <details class="faq-item" data-reveal>
+          <summary>Why expose model selection in the UI?</summary>
+          <p>
+            Teams often need to compare cost, latency, and answer quality across
+            available runtimes during internal evaluation.
+          </p>
+        </details>
+        <details class="faq-item" data-reveal>
+          <summary>Is this positioned as autonomous clinical software?</summary>
+          <p>
+            No. The product language should stay grounded in assistance,
+            retrieval, and review support for professional teams.
+          </p>
+        </details>
+        <details class="faq-item" data-reveal>
+          <summary>What happens when the runtime is not ready?</summary>
+          <p>
+            The interface should show health issues clearly and avoid pretending
+            that the assistant is available when dependencies are missing.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container cta-banner" data-reveal>
+      <div>
+        <p class="eyebrow">Next step</p>
+        <h2>Use the assistant page to test the live workflow.</h2>
+      </div>
+      <a class="button button-primary" href="{{ url_for('assistant') }}">
+        Go to Assistant
+      </a>
+    </div>
+  </section>
+{% endblock %}

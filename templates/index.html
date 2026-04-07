@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="hero-section page-section">
+    <div class="container hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">For clinics and medical teams</p>
+        <h1>Bring your medical knowledge base into one modern assistant workspace.</h1>
+        <p class="lead">
+          VitalVox combines retrieval, model routing, source awareness, and
+          runtime visibility so teams can move from manual searching to cleaner,
+          faster decision support.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="{{ url_for('assistant') }}">
+            Open Assistant
+          </a>
+          <a class="button button-secondary" href="{{ url_for('platform') }}">
+            Explore Platform
+          </a>
+        </div>
+        <div class="mini-stat-row">
+          <div class="mini-stat">
+            <strong>Source-backed</strong>
+            <span>Every answer can expose retrieved evidence.</span>
+          </div>
+          <div class="mini-stat">
+            <strong>Model-aware</strong>
+            <span>Route across cloud and local model options.</span>
+          </div>
+          <div class="mini-stat">
+            <strong>Operational</strong>
+            <span>See readiness before the conversation starts.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual" data-reveal>
+        <article class="showcase-card showcase-card-primary">
+          <p class="eyebrow">Assistant snapshot</p>
+          <h2>One workspace for retrieval, answers, and confidence signals.</h2>
+          <div class="showcase-thread">
+            <div class="thread-bubble thread-bubble-user">
+              What are the key warning signs of acute dehydration in adults?
+            </div>
+            <div class="thread-bubble thread-bubble-assistant">
+              Retrieved clinical context, summarized the answer, and attached
+              the source preview.
+            </div>
+          </div>
+          <div class="showcase-metrics">
+            <div>
+              <span>Context</span>
+              <strong>3 retrieved documents</strong>
+            </div>
+            <div>
+              <span>Routing</span>
+              <strong>Gemini and Ollama ready</strong>
+            </div>
+          </div>
+        </article>
+
+        <div class="showcase-stack">
+          <article class="showcase-card">
+            <span class="status-dot status-dot-live"></span>
+            <strong>Knowledge base visibility</strong>
+            <p>Expose retrieval readiness before clinicians start a session.</p>
+          </article>
+          <article class="showcase-card">
+            <span class="status-dot"></span>
+            <strong>Clear source traces</strong>
+            <p>Surface document names and previews instead of opaque answers.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container stat-grid" data-reveal>
+      <article class="metric-card">
+        <span>01</span>
+        <strong>Centralized medical retrieval</strong>
+        <p>Keep document-backed answers tied to the indexed knowledge base.</p>
+      </article>
+      <article class="metric-card">
+        <span>02</span>
+        <strong>Flexible model routing</strong>
+        <p>Switch between available Gemini and Ollama models from one UI.</p>
+      </article>
+      <article class="metric-card">
+        <span>03</span>
+        <strong>Operational health checks</strong>
+        <p>Expose readiness so teams know when runtimes or indexes need attention.</p>
+      </article>
+      <article class="metric-card">
+        <span>04</span>
+        <strong>Team-ready presentation</strong>
+        <p>A cleaner interface for demos, internal pilots, and workflow reviews.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">Core capabilities</p>
+        <h2>Designed to feel more like a clinical product than a prototype.</h2>
+        <p>
+          The experience balances trust, speed, and visual clarity so your team
+          can understand what the assistant is doing and why.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card" data-reveal>
+          <h3>Retrieval-first answers</h3>
+          <p>
+            Responses are generated from indexed medical context instead of
+            acting like a disconnected general chatbot.
+          </p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <h3>Transparent model controls</h3>
+          <p>
+            Show which provider and model handled the request so evaluation is
+            easier during testing and demos.
+          </p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <h3>Evidence visibility</h3>
+          <p>
+            Each answer can display source previews that help users judge
+            confidence before acting on the response.
+          </p>
+        </article>
+        <article class="feature-card" data-reveal>
+          <h3>Health-aware operations</h3>
+          <p>
+            Expose whether the knowledge base and model runtimes are ready so
+            teams are not surprised by silent failures.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section workflow-section">
+    <div class="container workflow-grid">
+      <div class="section-header" data-reveal>
+        <p class="eyebrow">Workflow</p>
+        <h2>How one query becomes a source-aware answer.</h2>
+      </div>
+
+      <div class="timeline" data-reveal>
+        <article class="timeline-item">
+          <span>1</span>
+          <div>
+            <h3>Question intake</h3>
+            <p>The assistant receives a focused clinical or operational question.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>2</span>
+          <div>
+            <h3>Knowledge retrieval</h3>
+            <p>Relevant passages are fetched from the indexed medical documents.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>3</span>
+          <div>
+            <h3>Model generation</h3>
+            <p>The selected model turns the retrieved context into a concise answer.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <span>4</span>
+          <div>
+            <h3>Answer review</h3>
+            <p>Users see the response, source previews, and runtime metadata together.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container split-panel">
+      <article class="panel panel-accent" data-reveal>
+        <p class="eyebrow">Safety posture</p>
+        <h2>Built to support review, not replace judgment.</h2>
+        <p>
+          VitalVox is positioned as a sourced assistant for research, internal
+          knowledge access, and clinical workflow support. Final clinical
+          decisions should remain with qualified professionals.
+        </p>
+      </article>
+
+      <article class="panel" data-reveal>
+        <p class="eyebrow">When this is valuable</p>
+        <ul class="clean-list">
+          <li>Internal pilots for medical AI interfaces</li>
+          <li>Faster access to indexed PDF guidance and documentation</li>
+          <li>Model comparison across local and cloud runtimes</li>
+          <li>Demo-ready presentation for healthcare stakeholders</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container cta-banner" data-reveal>
+      <div>
+        <p class="eyebrow">Ready to test the workspace?</p>
+        <h2>Open the assistant and run a source-backed medical query.</h2>
+      </div>
+      <a class="button button-primary" href="{{ url_for('assistant') }}">
+        Launch Assistant
+      </a>
+    </div>
+  </section>
+{% endblock %}

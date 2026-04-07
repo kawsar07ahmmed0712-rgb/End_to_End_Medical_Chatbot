@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="page-section page-hero">
+    <div class="container hero-grid hero-grid-compact">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Assistant workspace</p>
+        <h1>Run source-aware medical questions through a cleaner interface.</h1>
+        <p class="lead">
+          Choose an available model, review health readiness, and inspect source
+          previews with every response.
+        </p>
+      </div>
+
+      <article class="panel stacked-panel" data-reveal>
+        <h2>Workspace expectations</h2>
+        <ul class="clean-list">
+          <li>Short answers optimized for clarity</li>
+          <li>Model and latency visible on each response</li>
+          <li>Session stays in this browser tab until cleared</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="page-section assistant-section">
+    <div class="container assistant-layout">
+      <aside class="assistant-sidebar">
+        <article class="panel" data-reveal>
+          <p class="eyebrow">Runtime status</p>
+          <div id="assistant-health" class="status-stack">
+            <p class="status-placeholder">Loading assistant health...</p>
+          </div>
+        </article>
+
+        <article class="panel" data-reveal>
+          <p class="eyebrow">Model routing</p>
+          <label class="field-label" for="model-select">Available model</label>
+          <select id="model-select" class="input-control">
+            <option>Loading model catalog...</option>
+          </select>
+          <p id="model-help" class="helper-text">
+            Select a ready runtime before sending a question.
+          </p>
+        </article>
+
+        <article class="panel" data-reveal>
+          <p class="eyebrow">Starter prompts</p>
+          <div class="chip-grid" id="prompt-grid">
+            <button class="prompt-chip" type="button" data-prompt="Summarize the key signs and symptoms of acute asthma exacerbation.">
+              Acute asthma summary
+            </button>
+            <button class="prompt-chip" type="button" data-prompt="What are the common red flags that suggest a patient with chest pain needs urgent evaluation?">
+              Chest pain red flags
+            </button>
+            <button class="prompt-chip" type="button" data-prompt="List the major counseling points for safe antibiotic use in outpatient care.">
+              Antibiotic counseling
+            </button>
+            <button class="prompt-chip" type="button" data-prompt="Explain the warning signs of dehydration and when escalation is appropriate.">
+              Dehydration escalation
+            </button>
+          </div>
+        </article>
+
+        <article class="panel" data-reveal>
+          <p class="eyebrow">Usage note</p>
+          <p class="helper-text helper-text-strong">
+            Outputs should support review and research workflows, not replace
+            professional medical judgment.
+          </p>
+        </article>
+      </aside>
+
+      <section class="chat-shell" data-reveal>
+        <div class="chat-head">
+          <div>
+            <p class="eyebrow">Conversation</p>
+            <h2>Assistant session</h2>
+          </div>
+          <button id="clear-session" class="button button-secondary" type="button">
+            Clear session
+          </button>
+        </div>
+
+        <div
+          id="chat-status"
+          class="chat-status"
+          role="status"
+          aria-live="polite"
+        >
+          Waiting for a question.
+        </div>
+
+        <div
+          id="chat-log"
+          class="chat-log"
+          role="log"
+          aria-live="polite"
+          aria-label="Assistant conversation"
+        >
+          <div class="empty-state">
+            <p class="eyebrow">No messages yet</p>
+            <h3>Ask a clinical or operational question to begin.</h3>
+            <p>
+              The assistant will return a concise answer with sources when the
+              runtime and knowledge base are available.
+            </p>
+          </div>
+        </div>
+
+        <form id="chat-form" class="composer" novalidate>
+          <label class="sr-only" for="message-input">Your message</label>
+          <textarea
+            id="message-input"
+            class="composer-input"
+            rows="4"
+            placeholder="Ask a medical question backed by your indexed knowledge base..."
+            required
+          ></textarea>
+          <div class="composer-bar">
+            <p class="helper-text">Shift + Enter for a new line. Enter to send.</p>
+            <button id="send-button" class="button button-primary" type="submit">
+              Send question
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <section class="page-section error-section">
+    <div class="container error-card" data-reveal>
+      <p class="eyebrow">500</p>
+      <h1>The application encountered an unexpected error.</h1>
+      <p class="lead">
+        Review the server logs for details, then try the page again once the
+        issue is resolved.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ url_for('index') }}">Return Home</a>
+        <a class="button button-secondary" href="{{ url_for('platform') }}">
+          View Platform
+        </a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

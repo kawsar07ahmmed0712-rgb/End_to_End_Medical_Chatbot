@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      id="theme-color-meta"
+      name="theme-color"
+      content="#f3fbfb"
+    />
+    <meta name="description" content="{{ page_description }}" />
+    <title>{{ page_title }} | {{ site_name }}</title>
+    <script>
+      (function () {
+        var storageKey = "preferred-theme";
+        var metaColors = { light: "#f3fbfb", dark: "#081521" };
+        var storedTheme = null;
+
+        try {
+          storedTheme = localStorage.getItem(storageKey);
+        } catch (error) {
+          storedTheme = null;
+        }
+
+        var theme =
+          storedTheme === "light" || storedTheme === "dark"
+            ? storedTheme
+            : window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+
+        document.documentElement.setAttribute("data-theme", theme);
+        var themeMeta = document.getElementById("theme-color-meta");
+        if (themeMeta) {
+          themeMeta.setAttribute("content", metaColors[theme]);
+        }
+      })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body class="page-body">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container topbar">
+        <a class="brand" href="{{ url_for('index') }}">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-copy">
+            <strong>{{ site_name }}</strong>
+            <span>Medical AI workspace for clinical teams</span>
+          </span>
+        </a>
+
+        <div class="topbar-actions">
+          <button
+            class="menu-toggle"
+            type="button"
+            data-menu-toggle
+            aria-expanded="false"
+            aria-controls="site-nav"
+          >
+            Menu
+          </button>
+
+          <nav id="site-nav" class="site-nav" data-site-nav>
+            <a
+              class="nav-link{% if active_nav == 'home' %} is-active{% endif %}"
+              href="{{ url_for('index') }}"
+            >
+              Home
+            </a>
+            <a
+              class="nav-link{% if active_nav == 'platform' %} is-active{% endif %}"
+              href="{{ url_for('platform') }}"
+            >
+              Platform
+            </a>
+            <a
+              class="nav-link{% if active_nav == 'assistant' %} is-active{% endif %}"
+              href="{{ url_for('assistant') }}"
+            >
+              Assistant
+            </a>
+          </nav>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            data-theme-toggle
+            aria-label="Toggle color theme"
+          >
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+            <span class="theme-toggle-label">Theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-copy">
+          <p class="eyebrow">Clinical AI workspace</p>
+          <h2>Structured retrieval, visible sources, and operational clarity.</h2>
+          <p>
+            VitalVox helps clinics and medical teams move from scattered
+            documents to faster, source-aware answers with a cleaner workflow.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="{{ url_for('index') }}">Home</a>
+          <a href="{{ url_for('platform') }}">Platform</a>
+          <a href="{{ url_for('assistant') }}">Assistant</a>
+          <a href="{{ url_for('health') }}">Health API</a>
+        </div>
+      </div>
+
+      <div class="container footer-meta">
+        <p>&copy; {{ current_year }} {{ site_name }}. Built for medical teams.</p>
+        <p class="footer-disclaimer">
+          Responses are informational and should be reviewed by qualified
+          professionals before clinical use.
+        </p>
+      </div>
+    </footer>
+
+    <script
+      src="{{ url_for('static', filename='site.js') }}"
+      defer
+    ></script>
+    {% if page_script %}
+      <script
+        src="{{ url_for('static', filename=page_script) }}"
+        defer
+      ></script>
+    {% endif %}
+  </body>
+</html>
